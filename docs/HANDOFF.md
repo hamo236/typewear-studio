@@ -2,6 +2,13 @@
 
 Newest entry on top. Add each future entry above the previous entry.
 
+## 2026-11-03 — T-002 install, build, and local run
+
+- **Completed:** A clean dependency state installed with `pnpm install --frozen-lockfile`; strict TypeScript validation passed with `pnpm check`; the full production build passed with `pnpm build`; and `pnpm dev:static` served the app locally on port 3000.
+- **Runtime evidence:** `curl http://127.0.0.1:3000/` returned HTTP 200 and HTML; `curl http://127.0.0.1:3000/manus-routes.json` returned the valid six-route manifest. No application files were changed.
+- **Next task:** T-003 is now the first available task. Its dependency T-001 is complete; create the central site configuration without hardcoding values in components.
+- **Claim commit:** `f5e4408`.
+
 ## 2026-11-03 — T-001 repo audit
 
 - **Completed:** Revalidated the stack, package scripts, GitHub Pages workflow, production base path, source layout, and documentation facts against the current clone. The verified facts are recorded in `AGENTS.md`.
