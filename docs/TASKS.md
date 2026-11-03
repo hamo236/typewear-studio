@@ -6,7 +6,7 @@ Statuses: `[ ]` todo, `[~]` in progress, `[x]` done, `[!]` blocked. Never delete
 
 - [x] **T-001 Audit repo** (Manus, 2026-11-03 UTC, verified with package/config/workflow/folder checks and `git diff --check`, facts recorded in `AGENTS.md`, commits 03421a0 and dce4fbe) — Dependencies: none. Acceptance: record the verified stack, commands, deployment, and folder map in `AGENTS.md`.
 - [x] **T-002 Confirm install, build, and local run** (Manus, 2026-11-03 UTC, verified with `pnpm install --frozen-lockfile`, `pnpm check`, `pnpm build`, `pnpm dev:static`, and `curl` HTTP 200 checks for `/` and `/manus-routes.json`, commit f5e4408) — Dependencies: none. Acceptance: a fresh clone installs, builds, and runs locally with exact commands recorded.
-- [ ] **T-003 Create central site config** — Dependencies: T-001. Acceptance: central config contains brand name, WhatsApp number placeholder, currency, locale, PIN, delivery/return text, social links, and WhatsApp message template; no component hardcodes these values.
+- [x] **T-003 Create central site config** (Manus, 2026-11-03 UTC, verified by `pnpm check`, `pnpm build`, config assertions, currency-literal search, and `git diff --check`, implementation commit 34d3028) — Dependencies: T-001. Acceptance: central config contains brand name, WhatsApp number placeholder, currency, locale, PIN, delivery/return text, social links, and WhatsApp message template; no component hardcodes these values.
 
 ## Phase 1: Design system (needs T-002)
 

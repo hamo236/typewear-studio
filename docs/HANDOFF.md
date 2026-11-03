@@ -2,6 +2,15 @@
 
 Newest entry on top. Add each future entry above the previous entry.
 
+## 2026-11-03 — T-003 central site config
+
+- **Completed:** Added `client/src/lib/site-config.ts` as the single typed source for brand name, Arabic-first locale/direction, EGP currency, convenience PIN, WhatsApp placeholder number and message template, delivery/return copy, and social links. Added `formatMoney` and replaced component-level currency/brand/title literals in the existing shell, cart, editor, product card, and studio context.
+- **Verification:** `pnpm check`, `pnpm build`, config assertions via `pnpm exec tsx`, a search for hardcoded currency/locale literals, and `git diff --check` passed. No dependency was added. The existing local development server was not changed.
+- **Important limitation:** The WhatsApp number is intentionally the placeholder `201000000000`; it must be replaced by the owner before order links are enabled. The admin PIN is intentionally the convenience placeholder `0000` and is not real security on a static site.
+- **Process note:** The implementation commit was pushed before the task-status edit; the completion status and evidence are being pushed immediately afterward in the required task record.
+- **Next task:** T-010 is the first available task whose dependency T-002 is complete. T-010 should implement the design tokens from `docs/DESIGN_SYSTEM.md` and must resolve the existing coral palette against the required single lime accent deliberately.
+- **Implementation commit:** `34d3028`.
+
 ## 2026-11-03 — T-002 install, build, and local run
 
 - **Completed:** A clean dependency state installed with `pnpm install --frozen-lockfile`; strict TypeScript validation passed with `pnpm check`; the full production build passed with `pnpm build`; and `pnpm dev:static` served the app locally on port 3000.
