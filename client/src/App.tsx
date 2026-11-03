@@ -11,6 +11,10 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Products from "./pages/Products";
 
+const routerBase = import.meta.env.BASE_URL === "/"
+  ? ""
+  : import.meta.env.BASE_URL.replace(/\/$/, "");
+
 function SiteRoutes() {
   const { dir } = useStudio();
   return <div className="site-frame" dir={dir}>
@@ -35,7 +39,7 @@ export default function App() {
   return <ErrorBoundary>
     <ThemeProvider defaultTheme="light" switchable>
       <StudioProvider>
-        <WouterRouter base={import.meta.env.BASE_URL}>
+        <WouterRouter base={routerBase}>
           <SiteRoutes />
         </WouterRouter>
       </StudioProvider>
