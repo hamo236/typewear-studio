@@ -9,6 +9,13 @@ Newest entry on top. Add each future entry above the previous entry.
 - **Expected check:** after the push, confirm the newest `main` workflow run is completed successfully with the command in `docs/DEPLOY.md`. Typical recent delay is 87–90 seconds.
 - **Status:** confirmed. Test push commit `d233729` reached workflow run `41720486768`; both the static build and GitHub Pages deploy jobs completed successfully in about 79 seconds. The run emitted only upstream Node.js 20 deprecation and Ubuntu image migration annotations; no deployment failure.
 
+## 2026-11-03 — T-010 design tokens completed
+
+- **Completed:** Finalized the existing CSS-only token implementation from `a69473e`: semantic light/dark colors, lime action accent, neutral scale, 12/20/28/pill radii, 4/8-based spacing scale, three shadows, z-index levels, glass recipe variables, and solid `.glass-surface` fallback.
+- **Verification:** 25 CSS token assertions, `pnpm check`, `pnpm build:static`, and `git diff --check` passed. This task was not visually tested; the current deployment gate does not require heavy viewport screenshots unless the task explicitly asks for them.
+- **Deployment:** The documentation finalization push will be checked with the command in `docs/DEPLOY.md`; do not claim the latest push is live until its workflow succeeds.
+- **Next task:** T-011 Typography is now the first open task with completed dependencies.
+
 ## 2026-11-03 — T-010 design tokens (in progress)
 
 - **Done:** Extended `client/src/index.css` with semantic light/dark surface and ink aliases, a lime action accent, neutral scale, 12/20/28/pill radii, 4/8-based spacing scale, three shadows, z-index scale, glass opacity/blur/saturation/border/highlight tokens, solid fallback, and a `.glass-surface` utility. Existing header and toast layers now use z-index/radius tokens. This is CSS-only; no component logic changed.
