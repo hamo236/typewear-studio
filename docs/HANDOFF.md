@@ -2,6 +2,13 @@
 
 Newest entry on top. Add each future entry above the previous entry.
 
+## 2026-11-03 — T-001 repo audit
+
+- **Completed:** Revalidated the stack, package scripts, GitHub Pages workflow, production base path, source layout, and documentation facts against the current clone. The verified facts are recorded in `AGENTS.md`.
+- **Evidence:** Package metadata and scripts, `vite.config.ts`, `.github/workflows/deploy-pages.yml`, `DEPLOYMENT.md`, required folder existence checks, and `git diff --check` all passed. No application code, styles, or assets changed.
+- **Next task:** T-002 is now the first available task. It requires install, build, and local-run verification; keep it `[~]` until the local server is actually started and checked.
+- **Commits:** `03421a0` contains the audit record; `dce4fbe` contains the task claim.
+
 ## 2026-11-03 — setup session
 
 - **What was found:** Clean clone of `hamo236/typewear-studio` on `main`, currently a React 19 + TypeScript + Vite 7 + Tailwind 4 customization-studio prototype with Express/tRPC/Drizzle scaffold. GitHub Pages deploys `dist/public` from `main` through `.github/workflows/deploy-pages.yml`, with a SPA `404.html` fallback and `/typewear-studio/` production base path. Existing routes include Home, Products, Editor, Cart, About, Design System, and 404. Existing repo planning describes local demo design/cart behavior and explicitly says there are no live payments, orders, inventory, remote persistence, or message delivery.

@@ -4,7 +4,7 @@ Statuses: `[ ]` todo, `[~]` in progress, `[x]` done, `[!]` blocked. Never delete
 
 ## Phase 0: Foundation
 
-- [~] **T-001 Audit repo** (Manus, 2026-11-03 UTC) — Dependencies: none. Notes: rechecking the repository stack, commands, deployment workflow, and folder map against the current clone before marking complete. Acceptance: record the verified stack, commands, deployment, and folder map in `AGENTS.md`.
+- [x] **T-001 Audit repo** (Manus, 2026-11-03 UTC, verified with package/config/workflow/folder checks and `git diff --check`, facts recorded in `AGENTS.md`, commits 03421a0 and dce4fbe) — Dependencies: none. Acceptance: record the verified stack, commands, deployment, and folder map in `AGENTS.md`.
 - [ ] **T-002 Confirm install, build, and local run** — Dependencies: none. Acceptance: a fresh clone installs, builds, and runs locally with exact commands recorded.
 - [ ] **T-003 Create central site config** — Dependencies: T-001. Acceptance: central config contains brand name, WhatsApp number placeholder, currency, locale, PIN, delivery/return text, social links, and WhatsApp message template; no component hardcodes these values.
 
