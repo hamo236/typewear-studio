@@ -1,5 +1,15 @@
 # AGENTS.md
 
+DEPLOYMENT RULE (non-negotiable)
+Work is not finished until it is live. For every task:
+1. Work directly on the deploy branch: main. Do not leave changes only on your machine, only in a different branch, or only in the repository without the site updating.
+2. Commit and push to main after each task (and at least every time you stop).
+3. Confirm the deployment with ONE cheap check from DEPLOY.md (build passes, push accepted, latest deployment/workflow status is success or the live URL responds). Do not browse the site, do not take screenshots, do not run long test suites. Keep token use low.
+4. Mark a task [x] only after steps 1-3 are done. Write: (agent, UTC date, commit hash, deploy check result, 'not visually tested' unless you really tested it).
+5. If you cannot confirm the deployment, do not say it is live. Write 'pushed, deployment not confirmed' in the task notes and in HANDOFF.md.
+6. If the build or deployment fails because of your change, fixing it is your first priority before any new task.
+7. Live URL: https://hamo236.github.io/typewear-studio/. Details: DEPLOY.md.
+
 This file is the single source of truth for every agent working in this repository. Read it completely before acting.
 
 ## 1. Start of every session
@@ -8,6 +18,7 @@ This file is the single source of truth for every agent working in this reposito
 - Read `AGENTS.md`, `docs/PROJECT_BRIEF.md`, `docs/DESIGN_SYSTEM.md`, the top entries of `docs/HANDOFF.md`, and `docs/TASKS.md`.
 - Find the first task in `docs/TASKS.md` that is not `[x]` and whose dependencies are all `[x]`.
 - If a task is `[~]` (in progress by another agent that probably ran out of budget), read its notes and the recent git log/diff, then continue it. Do not start a new task before it is `[x]`.
+- Pickup instructions: pull, read AGENTS.md and DEPLOY.md, work on the deploy branch, push and confirm deployment after every task.
 
 ## 2. Task statuses
 
@@ -26,12 +37,12 @@ This file is the single source of truth for every agent working in this reposito
 5. Add a short entry to `docs/HANDOFF.md` if anything non-obvious was decided.
 6. Move to the next task and continue until the budget is nearly finished.
 
-## 4. Verification (mandatory)
+## 4. Verification (lightweight deployment gate)
 
-- Install and build must pass.
-- Run the site and actually use the feature: click it, reload, and test empty/error cases.
-- For UI tasks, check 360px, 768px, 1440px, light mode, dark mode, and RTL.
-- If a browser cannot be run, say so: leave the task as `[~]` with the note `needs visual check`. Never mark `[x]` on assumption. Never claim something works without testing it.
+- The build must pass and the site must deploy.
+- Confirm the latest GitHub Actions deployment or the live URL with the cheap check in `DEPLOY.md`.
+- Do not run heavy visual testing unless the task explicitly asks for it; T-052, T-053, T-054, T-058, and T-059 may require it.
+- Keep the honesty rule: never claim something was tested if it was not.
 - If something is only partly working, say so in the task notes and in `docs/HANDOFF.md`.
 
 ## 5. When token or budget is running low
