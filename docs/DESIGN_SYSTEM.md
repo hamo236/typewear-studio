@@ -1,5 +1,8 @@
 # Design system
 
+> Visual direction lives in INSPIRE.md. Where this file and INSPIRE.md disagree on anything visual, INSPIRE.md wins.
+
+
 ## Direction: soft glass editorial
 
 Reference principles were studied; take the principles, never copy any brand, text, photo, or layout 1:1.
@@ -79,3 +82,41 @@ Test with landscape, portrait, square, huge, tiny, EXIF-rotated, and transparent
 - Use icons from one set only, Lucide or similar, with the same stroke weight.
 - Include a hidden `/design-system` page or equivalent showing tokens and every component so the owner can review the style in one place.
 - The result must read as professional human-made branding, with no generic template feeling.
+
+## INSPIRE final visual values
+
+The following values are authoritative for the visual redesign and supersede conflicting starter values above. They are summarized here so CSS tokens and component work have one explicit bridge to INSPIRE.md.
+
+### Palette and themes
+
+- Light canvas: `#F5F4EF` with a mint-to-canvas wash from `#DDF8E8` to `#F5F4EF`; surface `#FFFFFF`; soft surface `#FAFAF7`.
+- Light ink: `#17181A`; secondary ink `#3A3C40`; muted ink `#6C7076`; line `rgba(23,24,26,0.10)`.
+- Lime accent: `#C9F13B`; accent ink `#17181A`; accent soft `#EAF9B8`. Lime is a fill, ring, or active indicator, never text on a light background.
+- Stage tints: mint `#E3F7EA`, sand `#F1EBDD`, stone `#E9EAEC`, sky `#E4EDF5`, blush `#F6E6E1`, sage `#E3EADB`.
+- Status colors: success `#2E9E5B`, warning `#D99A1E`, danger `#D64545`.
+- Dark canvas `#0F1011`, surface `#17181A`, raised surface `#1F2124`, ink `#F2F2EE`, muted ink `#A2A6AB`, line `rgba(255,255,255,0.10)`, with deep muted stage tints.
+
+### Glass, shape, depth, and rhythm
+
+- `glass-light`: white at 62% opacity, 20px blur, 150% saturation, translucent 1px white border, inner highlight, and tinted soft shadow.
+- `glass-ink`: dark at 72% opacity, 18px blur, 140% saturation, subtle light border, and floating shadow.
+- `glass-dark`: dark-theme panel glass at 55% opacity with the same blur and faint light border.
+- Every glass surface has a solid fallback; never stack more than two glass layers and never use glass on ordinary cards.
+- Card radius 28px, image 24px, input 18px, sheet top corners 32px, pill 999px, small chip 12px. Round icon buttons are at least 44px.
+- Three shadows only: soft, lifted, floating. Use long, low-opacity, slightly tinted shadows.
+- Use the 4/8px spacing scale; section padding is 40px on phones and 72–96px on desktop.
+
+### Typography, motion, and composition
+
+- Use three roles: DISPLAY, ACCENT, and TEXT, each with a deliberate Arabic and Latin solution. The final pairing, font loading, and numeral choice are recorded in INSPIRE.md §5 and must be tested with real Arabic product names and prices before freezing.
+- Fluid scale: Display 44–120px, H1 36–56px, H2 28–40px, H3 22–28px, Body L 18px, Body M 16px, Body S 14px, Caption 12–13px. Arabic line heights are roomier than Latin.
+- Use motion durations 120/200/320/500ms, soft ease-out entrances, gentle spring sheets/nav, linear shimmer, and reduced-motion fades only. Animate transform and opacity, never layout.
+- Use mobile-first 2/3/4-column grids at phone/tablet/desktop, generous whitespace, asymmetric hero overlaps, and one primary action per screen.
+
+### Component and state direction
+
+- Shell: floating dark glass pill bottom navigation on mobile; floating glass-light pill header on desktop; calm ink footer.
+- Home: oversized headline with one accent word, ghost word, overlapping rotated hero cards, lime CTA, real counts only, category cards, dark featured card, and WhatsApp ordering steps.
+- Shop/product: search/filter controls, category circles, tinted 4:5 product stages, glass favorite and state chips, display-numeral prices, detail thumbnail rail, tabs, chips, dots, stepper, and sticky mobile actions.
+- Cart/toasts: glass-light sheet with drag handle and large total, one lime WhatsApp action, glass-ink toast above navigation, and designed empty states.
+- Image slots: intentional tinted public empty state, admin `أضف صورة` chip, shimmer loading, fade-in filled state, friendly retry error, and no dashed missing-image boxes.

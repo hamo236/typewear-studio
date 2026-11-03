@@ -6,6 +6,10 @@
 - No payments at all. Ordering happens through WhatsApp.
 - The business is in Egypt: Arabic-first with correct RTL. Keep the language setup the repository already has; support Arabic and English only if the repository already does or it costs little.
 
+## Visual direction
+
+Visual direction: see INSPIRE.md. Functional requirements in this file are never changed by design work.
+
 ## Image slots (core requirement)
 
 - Product images are **not supplied by agents**. Every product has an image slot that is empty by default and looks designed, not broken.

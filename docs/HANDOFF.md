@@ -2,6 +2,13 @@
 
 Newest entry on top. Add each future entry above the previous entry.
 
+## 2026-11-03 — INSPIRE added
+
+- **Files created/changed:** added `docs/INSPIRE.md`; updated `AGENTS.md`, `docs/PROJECT_BRIEF.md`, `docs/DESIGN_SYSTEM.md`, `docs/QUALITY_CHECKLIST.md`, `docs/TASKS.md`, and this handoff log. No site code, styles, or assets were changed.
+- **Decisions:** INSPIRE is now the visual north star; its warm off-white/mint canvas, charcoal ink, single lime action accent, restrained glass recipes, large rounded forms, Arabic-first typography direction, designed zero-photo states, and mobile-first composition supersede conflicting starter visual values. Phase 1B tasks T-061 through T-080 were inserted before the catalog phase, and existing visible-UI tasks now explicitly require `Must follow INSPIRE.md.`
+- **Conflicts resolved:** the former coral accent is retained only as historical context and is superseded by INSPIRE lime; old starter radii, glass, typography, and component direction are marked superseded in `DESIGN_SYSTEM.md`; the existing functional requirements remain unchanged. The final font pairing is intentionally deferred to T-063.
+- **Assumption:** the reference descriptions in INSPIRE are treated as principles only; no reference names, assets, exact layouts, or copied text are introduced.
+
 ## 2026-11-03 — T-060 deployment sync test push
 
 - **Deployment facts verified:** `main` is the deploy branch; GitHub Actions workflow `.github/workflows/deploy-pages.yml` builds `dist/public` and deploys it through GitHub Pages; the live URL is `https://hamo236.github.io/typewear-studio/`.

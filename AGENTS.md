@@ -10,12 +10,26 @@ Work is not finished until it is live. For every task:
 6. If the build or deployment fails because of your change, fixing it is your first priority before any new task.
 7. Live URL: https://hamo236.github.io/typewear-studio/. Details: DEPLOY.md.
 
+## DESIGN RULES
+
+1. INSPIRE.md is the visual direction of this site. Read it before any task that touches the look. Where DESIGN_SYSTEM.md and INSPIRE.md disagree on anything visual, INSPIRE.md wins.
+2. The existing look of the site is NOT sacred. When a task is part of Phase 1B or says "Must follow INSPIRE.md", restyle the existing screens and components to match INSPIRE. Replace old styles instead of layering on top; delete dead CSS and unused components. Do not limit yourself to the old design.
+3. Design changes happen ONLY through tasks. No agent changes the visual direction, palette, fonts or layout style on its own initiative, and no agent runs its own style experiments. If you see a design problem outside your task, add a note to HANDOFF.md or add a new task at the end of TASKS.md; do not fix it silently.
+4. Functional requirements are never changed by design work: empty image slots with one-click upload, admin mode, image normalization, products.json plus export/import, the cart with the fly-to-cart animation, WhatsApp ordering with the number in config, no payments, no fake content or numbers, light verification and the DEPLOYMENT RULE. A restyle must keep all of this working.
+5. Priority order when rules conflict: (1) AGENTS.md, (2) PROJECT_BRIEF.md functional requirements, (3) INSPIRE.md for anything visual, (4) DESIGN_SYSTEM.md, (5) the old existing look of the site.
+6. Use tokens only. No hard-coded colors, radii, shadows, font sizes or durations in components. If a needed token does not exist, add it to the token file and DESIGN_SYSTEM.md first.
+7. Never edit INSPIRE.md. If you disagree with something in it, write it in HANDOFF.md and continue with the closest valid option. The owner may adjust INSPIRE.md and the Phase 1B tasks later; re-read them at the start of every session.
+8. Originality: the reference designs are a mood board. Never copy names, text, photos or exact layouts from them.
+9. The site must look finished with zero product photos and better with photos.
+10. If a task you are continuing was started with the old look, finish it in the INSPIRE look.
+11. Verification stays light (build passes, deploy check). Visual proof is not required unless a task says so.
+
 This file is the single source of truth for every agent working in this repository. Read it completely before acting.
 
 ## 1. Start of every session
 
 - Run `git pull --rebase`.
-- Read `AGENTS.md`, `docs/PROJECT_BRIEF.md`, `docs/DESIGN_SYSTEM.md`, the top entries of `docs/HANDOFF.md`, and `docs/TASKS.md`.
+- Read `AGENTS.md`, `docs/DEPLOY.md`, `docs/PROJECT_BRIEF.md`, `docs/DESIGN_SYSTEM.md`, `docs/INSPIRE.md`, the top entries of `docs/HANDOFF.md`, and `docs/TASKS.md`.
 - Find the first task in `docs/TASKS.md` that is not `[x]` and whose dependencies are all `[x]`.
 - If a task is `[~]` (in progress by another agent that probably ran out of budget), read its notes and the recent git log/diff, then continue it. Do not start a new task before it is `[x]`.
 - Pickup instructions: pull, read AGENTS.md and DEPLOY.md, work on the deploy branch, push and confirm deployment after every task.

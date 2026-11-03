@@ -6,6 +6,20 @@ A task is done only when its acceptance criteria are met, the build passes, the 
 
 If a browser cannot be run, leave the task `[~]` with the exact note `needs visual check`; never mark it `[x]` on assumption.
 
+## INSPIRE design review
+
+- Only tokens are used; no hard-coded colors, radii, shadows, fonts or durations; no leftover old styles or dead CSS.
+- Lime is never used as text on light backgrounds; text on lime is ink; contrast AA everywhere, including over glass and images.
+- Glass appears only on navigation, sheets, drawers, overlays and chips; never more than two layers; every glass element has a solid fallback.
+- Typography uses the chosen display/accent/text roles in both Arabic and Latin; only one accent word per headline; prices and key numbers are large and in the display face; numerals consistent.
+- The ghost word is aria-hidden and static or transform-only.
+- Product cards, category cards, detail page, cart drawer and image slots match the screen specifications in INSPIRE.md.
+- Empty states look designed (no broken boxes, no "image missing" text); the home page looks finished with zero photos.
+- No invented numbers, reviews, testimonials or brand claims; any count shown is computed from real data.
+- RTL mirrored correctly; dark mode uses the dark tokens; touch targets 44px or more; reduced motion respected; no layout shift.
+- Nothing from the references is copied (names, text, photos, exact layouts).
+- Copy is short natural Arabic with no marketing filler or emojis.
+
 ## “Must not look AI-made” audit
 
 ### UI copy
