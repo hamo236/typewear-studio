@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useRef, useState } from 
 import type { ReactNode } from "react";
 import { createDefaultDesign } from "./catalog";
 import { translate, type CopyKey } from "./i18n";
+import { siteConfig } from "./site-config";
 import type { CartLine, GarmentDesign, Locale } from "./types";
 
 type StudioContextValue = {
@@ -38,9 +39,9 @@ function initialLocale(): Locale {
   if (param === "en" || param === "ar") return param;
   try {
     const saved = localStorage.getItem("typewear-locale");
-    return saved === "en" || saved === "ar" ? saved : "ar";
+    return saved === "en" || saved === "ar" ? saved : siteConfig.locale.default;
   } catch {
-    return "ar";
+    return siteConfig.locale.default;
   }
 }
 
@@ -62,8 +63,8 @@ export function StudioProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = locale;
-    document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
-    document.title = locale === "ar" ? "Typewear — استوديو تصميم الملابس" : "Typewear — Clothing Design Studio";
+    document.documentElement.dir = siteConfig.locale.direction[locale];
+    document.title = locale === "ar" ? `${siteConfig.brandName} — استوديو تصميم الملابس` : `${siteConfig.brandName} — Clothing Design Studio`;
     try { localStorage.setItem("typewear-locale", locale); } catch { notify(storageError()); }
   }, [locale]);
 
@@ -96,7 +97,7 @@ export function StudioProvider({ children }: { children: ReactNode }) {
   const cartCount = cart.reduce((sum, line) => sum + line.quantity, 0);
   const cartSubtotal = cart.reduce((sum, line) => sum + line.unitPrice * line.quantity, 0);
   const value = useMemo<StudioContextValue>(() => ({
-    locale, setLocale, dir: locale === "ar" ? "rtl" : "ltr", t: (key) => translate(locale, key),
+    locale, setLocale, dir: siteConfig.locale.direction[locale], t: (key) => translate(locale, key),
     design, setDesign, cart, setCart, addDesignToCart, removeCartLine, updateCartQuantity,
     cartCount, cartSubtotal, toast, notify,
   }), [locale, design, cart, cartCount, cartSubtotal, toast]);

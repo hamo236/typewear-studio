@@ -7,6 +7,7 @@ import { GarmentMockup } from "@/components/GarmentMockup";
 import { GARMENT_COLORS, PRODUCTS, createDefaultDesign, createLayerId, getProduct } from "@/lib/catalog";
 import { useStudio } from "@/lib/StudioContext";
 import { basePrice, estimatePrice, exportDesignSvg, garmentLabel } from "@/lib/editor-utils";
+import { formatMoney, siteConfig } from "@/lib/site-config";
 import type { DesignLayer, GarmentDesign, GarmentType, TextAlign } from "@/lib/types";
 
 type Tool = "product" | "color" | "text" | "upload" | "layers";
@@ -21,10 +22,6 @@ const TOOLS: { id: Tool; icon: typeof Shirt; labelKey: "product" | "color" | "te
   { id: "upload", icon: ImagePlus, labelKey: "upload" },
   { id: "layers", icon: Layers3, labelKey: "layers" },
 ];
-
-function money(value: number, locale: "en" | "ar") {
-  return new Intl.NumberFormat(locale === "ar" ? "ar-EG" : "en-EG", { style: "currency", currency: "EGP", maximumFractionDigits: 0 }).format(value);
-}
 
 function cloneDesign(value: GarmentDesign): GarmentDesign {
   return JSON.parse(JSON.stringify(value)) as GarmentDesign;
@@ -292,7 +289,7 @@ export default function Editor() {
   };
 
   return <div className="editor-page">
-    <div className="editor-heading page-container"><div><p className="eyebrow"><span className="eyebrow-dot"/>TYPEWEAR / STUDIO</p><h1>{t("editorTitle")}</h1></div><div className="editor-demo-tag"><span className="status-dot"/>{t("demoOnly")}</div><Link className="editor-back-link" href="/products"><ArrowLeft size={15}/>{t("shop")}</Link></div>
+    <div className="editor-heading page-container"><div><p className="eyebrow"><span className="eyebrow-dot"/>{siteConfig.brandName.toUpperCase()} / STUDIO</p><h1>{t("editorTitle")}</h1></div><div className="editor-demo-tag"><span className="status-dot"/>{t("demoOnly")}</div><Link className="editor-back-link" href="/products"><ArrowLeft size={15}/>{t("shop")}</Link></div>
     <section className="editor-shell" aria-label={t("editorTitle")}>
       <div className="editor-topbar">
         <div className="history-actions"><button type="button" onClick={undo} disabled={!past.length} aria-label={t("undo")} title={t("undo")}><Undo2 size={17}/></button><button type="button" onClick={redo} disabled={!future.length} aria-label={t("redo")} title={t("redo")}><Redo2 size={17}/></button><span className="topbar-divider"/><button type="button" onClick={()=>setConfirm({kind:"reset"})} aria-label={t("resetDesign")} title={t("resetDesign")}><RotateCw size={16}/></button></div>
@@ -308,7 +305,7 @@ export default function Editor() {
         <aside className={`editor-inspector ${mobilePanelOpen?"is-open":""}`} aria-label={t("properties")}>
           <div className="inspector-mobile-head"><strong>{t(TOOLS.find((item)=>item.id===tool)?.labelKey??"properties")}</strong><button type="button" aria-label={isArabic?"إغلاق":"Close"} onClick={()=>setMobilePanelOpen(false)}><X size={19}/></button></div>
           <div className="inspector-scroll"><div className="inspector-title-row"><div><span className="panel-overline">{t("properties")}</span><h2>{t(TOOLS.find((item)=>item.id===tool)?.labelKey??"properties")}</h2></div><ChevronDown size={17} aria-hidden="true"/></div>{currentToolContent()}</div>
-          <div className="price-panel"><div className="price-panel-top"><span>{t("estimatedPrice")}</span><strong>{money(price,locale)}</strong></div><p>{t("priceDisclaimer")}</p><button type="button" className="button button-primary button-full" onClick={handleAddToBag}>{t("bag")} <MoveUpRight size={15}/></button></div>
+          <div className="price-panel"><div className="price-panel-top"><span>{t("estimatedPrice")}</span><strong>{formatMoney(price,locale)}</strong></div><p>{t("priceDisclaimer")}</p><button type="button" className="button button-primary button-full" onClick={handleAddToBag}>{t("bag")} <MoveUpRight size={15}/></button></div>
         </aside>
       </div>
       <nav className="editor-mobile-toolbar" aria-label={t("mobileTools")}>{TOOLS.map(({id,icon:Icon,labelKey})=><button type="button" key={id} className={tool===id&&mobilePanelOpen?"is-active":""} aria-pressed={tool===id&&mobilePanelOpen} onClick={()=>selectTool(id)}><Icon size={20}/><span>{t(labelKey)}</span></button>)}</nav>

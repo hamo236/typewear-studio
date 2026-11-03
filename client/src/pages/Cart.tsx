@@ -6,14 +6,7 @@ import MiniDesignPreview from "@/components/MiniDesignPreview";
 import { useStudio } from "@/lib/StudioContext";
 import { garmentLabel } from "@/lib/editor-utils";
 import { GARMENT_COLORS } from "@/lib/catalog";
-
-function money(value: number, locale: "en" | "ar") {
-  return new Intl.NumberFormat(locale === "ar" ? "ar-EG" : "en-EG", {
-    style: "currency",
-    currency: "EGP",
-    maximumFractionDigits: 0,
-  }).format(value);
-}
+import { formatMoney, siteConfig } from "@/lib/site-config";
 
 export default function Cart() {
   const { cart, removeCartLine, updateCartQuantity, setDesign, cartSubtotal, locale, t } = useStudio();
@@ -23,7 +16,7 @@ export default function Cart() {
     <div className="cart-page page-container section-space">
       <div className="page-title-row">
         <div>
-          <p className="eyebrow"><span className="eyebrow-dot" />TYPEWEAR / {locale === "ar" ? "الحقيبة" : "BAG"}</p>
+          <p className="eyebrow"><span className="eyebrow-dot" />{siteConfig.brandName.toUpperCase()} / {locale === "ar" ? "الحقيبة" : "BAG"}</p>
           <h1>{t("cartTitle")}</h1>
         </div>
         <span className="cart-count-label">{cart.reduce((sum, line) => sum + line.quantity, 0)} / {t("pieceCount")}</span>
@@ -60,7 +53,7 @@ export default function Cart() {
                         {colorLabel}
                       </span>
                     </p>
-                    <p className="line-price">{money(line.unitPrice, locale)} <small>· {locale === "ar" ? "للقطعة" : "each"}</small></p>
+                    <p className="line-price">{formatMoney(line.unitPrice, locale)} <small>· {locale === "ar" ? "للقطعة" : "each"}</small></p>
                     <Link className="cart-edit-link" href="/editor" onClick={() => setDesign(line.design)}>{t("customize")}</Link>
                   </div>
                   <div className="cart-line-actions">
@@ -77,9 +70,9 @@ export default function Cart() {
           </div>
 
           <aside className="cart-summary">
-            <span className="product-number">TYPEWEAR / DEMO BAG</span>
+            <span className="product-number">{siteConfig.brandName.toUpperCase()} / DEMO BAG</span>
             <h2>{t("subtotal")}</h2>
-            <div className="summary-total"><span>{t("subtotal")}</span><strong>{money(cartSubtotal, locale)}</strong></div>
+            <div className="summary-total"><span>{t("subtotal")}</span><strong>{formatMoney(cartSubtotal, locale)}</strong></div>
             <button className="button button-primary button-full" type="button" disabled>{t("checkout")}</button>
             <p className="cart-warning"><span aria-hidden="true">!</span>{t("checkoutNotice")}</p>
             <p className="tiny-note">{t("cartDemo")}</p>

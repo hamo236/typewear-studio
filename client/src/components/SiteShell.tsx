@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, Moon, ShoppingBag, Sun, X } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useStudio } from "@/lib/StudioContext";
+import { siteConfig } from "@/lib/site-config";
 
 export function SiteHeader() {
   const { locale, setLocale, t, cartCount } = useStudio();
@@ -19,9 +20,9 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="header-inner page-container">
-        <Link href="/" className="brand-lockup" aria-label={locale === "ar" ? "Typewear — الرئيسية" : "Typewear — home"} onClick={() => setMenuOpen(false)}>
+        <Link href="/" className="brand-lockup" aria-label={locale === "ar" ? `${siteConfig.brandName} — الرئيسية` : `${siteConfig.brandName} — home`} onClick={() => setMenuOpen(false)}>
           <span className="brand-mark" aria-hidden="true">T<span>W</span></span>
-          <span className="brand-copy"><strong>TYPEWEAR</strong><small>{t("brandSlogan")}</small></span>
+          <span className="brand-copy"><strong>{siteConfig.brandName.toUpperCase()}</strong><small>{t("brandSlogan")}</small></span>
         </Link>
 
         <nav id="main-navigation" aria-label={locale === "ar" ? "التنقل الرئيسي" : "Main navigation"} className={`desktop-nav ${menuOpen ? "is-open" : ""}`}>
@@ -57,9 +58,9 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="page-container footer-inner">
-        <div className="footer-brand"><span className="brand-mark" aria-hidden="true">T<span>W</span></span><span>Typewear / {locale === "ar" ? "استوديو تصميم تجريبي" : "A clothing design concept"}</span></div>
+        <div className="footer-brand"><span className="brand-mark" aria-hidden="true">T<span>W</span></span><span>{siteConfig.brandName} / {locale === "ar" ? "استوديو تصميم تجريبي" : "A clothing design concept"}</span></div>
         <p className="footer-demo"><span className="status-dot" />{locale === "ar" ? "نموذج واجهة فقط · لا توجد طلبات حقيقية" : "Frontend concept only · no real orders"}</p>
-        <span className="footer-year">© 2026 TYPEWEAR</span>
+        <span className="footer-year">© 2026 {siteConfig.brandName.toUpperCase()}</span>
       </div>
     </footer>
   );

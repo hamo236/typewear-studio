@@ -4,6 +4,7 @@ import { ArrowUpLeft, ArrowUpRight, Plus } from "lucide-react";
 import { Link } from "wouter";
 import { useStudio } from "@/lib/StudioContext";
 import { GARMENT_COLORS } from "@/lib/catalog";
+import { formatMoney } from "@/lib/site-config";
 import type { GarmentDesign, Product } from "@/lib/types";
 import { GarmentMockup } from "./GarmentMockup";
 
@@ -31,7 +32,7 @@ export default function ProductCard({ product, index = 0 }: { product: Product; 
         <Link className="tile-quick-edit" href="/editor" onClick={configure}><Plus size={15} aria-hidden="true" />{t("customize")}</Link>
       </div>
       <div className="product-tile-info">
-        <div className="product-info-head"><div><p className="product-number">0{index + 1} / {t("pieceCount")}</p><h3>{name}</h3></div><span className="product-price">{new Intl.NumberFormat(locale === "ar" ? "ar-EG" : "en-EG", { style: "currency", currency: "EGP", maximumFractionDigits: 0 }).format(product.price)}</span></div>
+        <div className="product-info-head"><div><p className="product-number">0{index + 1} / {t("pieceCount")}</p><h3>{name}</h3></div><span className="product-price">{formatMoney(product.price, locale)}</span></div>
         <p className="product-description">{description}</p>
         <div className="product-tile-bottom"><div className="swatch-row" role="group" aria-label={t("colors")}>
           {product.colors.map((swatch) => {
