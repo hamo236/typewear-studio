@@ -10,7 +10,7 @@ Statuses: `[ ]` todo, `[~]` in progress, `[x]` done, `[!]` blocked. Never delete
 
 ## Phase 1: Design system (needs T-002)
 
-- [ ] **T-010 Design tokens** — Dependencies: T-002. Acceptance: colors with light/dark themes, radii, shadows, spacing, z-index, and glass recipe with fallback are tokenized.
+- [~] **T-010 Design tokens** (Manus, 2026-11-03 UTC) — Dependencies: T-002. Notes: extending the existing CSS token layer with the soft-glass editorial semantic palette, lime action accent, responsive scales, z-index levels, and a glass fallback; no component logic changes. Acceptance: colors with light/dark themes, radii, shadows, spacing, z-index, and glass recipe with fallback are tokenized.
 - [ ] **T-011 Typography** — Dependencies: T-002. Acceptance: an Arabic-capable pairing is selected and loaded, the type scale is defined, and RTL typography is checked.
 - [ ] **T-012 Motion tokens** — Dependencies: T-002. Acceptance: motion durations/easings are tokenized and reduced-motion handling is implemented.
 - [ ] **T-013 Base components** — Dependencies: T-010, T-011, T-012. Acceptance: buttons, inputs, chips, color dots, badges, tabs, toast, tooltip, and stepper have all required states.
