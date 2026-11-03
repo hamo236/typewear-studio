@@ -1,0 +1,15 @@
+# Typewear frontend libraries and assets
+
+Public repository and package signals below were checked on 2026-11-01. The application reuses its installed versions and does not add dependencies. Several installed package versions are older than the current upstream release; upgrading them is intentionally deferred to avoid unreviewed compatibility changes while implementing the frontend.
+
+| Library / asset | Installed / bundled version | License | Upstream and evidence |
+| --- | --- | --- | --- |
+| React | 19.2.1 | MIT | [Repository](https://github.com/facebook/react) · [License](https://github.com/react/react/blob/main/LICENSE). Official release history showed continuing React 19.2 patch releases in October 2026; public signals: 252k GitHub stars and 205M npm weekly downloads. Installed 19.2.1 is behind 19.2.9. |
+| Vite | 7.3.7 | MIT | [Repository](https://github.com/vitejs/vite) · [License](https://github.com/vitejs/vite/blob/main/LICENSE). v7.3.7 published Oct 6, 2026; v7.3 support guidance says important fixes and security patches are backported. Public signals: 44M npm weekly downloads and about 83.6k GitHub stars. |
+| Tailwind CSS | 4.1.14 | MIT | [Repository](https://github.com/tailwindlabs/tailwindcss) · [License](https://github.com/tailwindlabs/tailwindcss/blob/main/LICENSE). Upstream listed v4.3.3 in October 2026; public npm signals: about 59M weekly downloads and 10.5k dependents. Installed 4.1.14 remains the project's pinned v4 dependency. |
+| Wouter | 3.3.5 | The Unlicense | [Repository](https://github.com/molefrog/wouter) · [License](https://github.com/molefrog/wouter/blob/main/LICENSE). Upstream v3.13.0 released Sep 30, 2026; public signals: about 2.25M npm weekly downloads and 7.9k GitHub stars. |
+| Lucide React | 0.453.0 | ISC (the Lucide license page separately attributes some inherited Feather icons under MIT) | [Repository](https://github.com/lucide-icons/lucide/tree/main/packages/lucide-react) · [License](https://lucide.dev/license). Releases and commits were active in October 2026; public signals: about 37M npm weekly downloads and 25k GitHub stars. Installed 0.453.0 is behind upstream 1.65.0. |
+| Cairo variable font | Local TTF in `client/public/fonts/Cairo-variable.ttf` | SIL Open Font License 1.1 | [Google Fonts source](https://github.com/google/fonts/tree/main/ofl/cairo) · local license: `client/public/fonts/OFL-Cairo.txt`. Arabic and Latin glyph coverage supports the Arabic UI and mixed-language labels. |
+| DM Sans variable font | Local TTF in `client/public/fonts/DMSans-variable.ttf` | SIL Open Font License 1.1 | [Google Fonts source](https://github.com/google/fonts/tree/main/ofl/dmsans) · [DM Fonts source project](https://github.com/googlefonts/dm-fonts) · local license: `client/public/fonts/OFL-DM-Sans.txt`. Used for display, English labels and numerals. |
+
+The garment editor itself uses React, SVG, and standard browser APIs; no paid editor service, image library, backend, checkout, or payment integration is added. Example apparel, imagery rendered as SVG mockups, and prices are prototype content rather than real inventory or product offers.

@@ -1,0 +1,1 @@
+Cairo variable and DM Sans variable are bundled from Google Fonts' official repository under their SIL Open Font Licenses. See OFL-Cairo.txt and OFL-DM-Sans.txt in this folder.

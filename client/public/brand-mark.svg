@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="128" viewBox="0 0 512 128" role="img" aria-label="Typewear">
+  <rect width="512" height="128" fill="#f4f1e9"/>
+  <text x="22" y="88" fill="#20211e" font-family="Georgia,serif" font-size="72" font-weight="700" letter-spacing="-6">TYPEWEAR</text>
+  <circle cx="473" cy="79" r="7" fill="#ed7358"/>
+</svg>
