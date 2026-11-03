@@ -2,6 +2,14 @@
 
 Newest entry on top. Add each future entry above the previous entry.
 
+## 2026-11-03 — T-010 design tokens (in progress)
+
+- **Done:** Extended `client/src/index.css` with semantic light/dark surface and ink aliases, a lime action accent, neutral scale, 12/20/28/pill radii, 4/8-based spacing scale, three shadows, z-index scale, glass opacity/blur/saturation/border/highlight tokens, solid fallback, and a `.glass-surface` utility. Existing header and toast layers now use z-index/radius tokens. This is CSS-only; no component logic changed.
+- **Verification:** Contrast assertions passed for charcoal on warm canvas and accent ink on lime. `pnpm check`, `pnpm build`, token-presence grep, and `git diff --check` passed. Sandbox browser checked desktop light, desktop English, desktop dark, and desktop Arabic/RTL renderings.
+- **Remaining:** **needs visual check** at 360px, 768px, and 1440px. The available browser path cannot set viewport sizes, so T-010 remains `[~]`; do not start T-011 until this visual check is completed and the task is marked `[x]`.
+- **Files touched:** `client/src/index.css`, `docs/TASKS.md`, `docs/HANDOFF.md`.
+- **WIP commit:** to be recorded in the commit that pushes this handoff.
+
 ## 2026-11-03 — T-003 central site config
 
 - **Completed:** Added `client/src/lib/site-config.ts` as the single typed source for brand name, Arabic-first locale/direction, EGP currency, convenience PIN, WhatsApp placeholder number and message template, delivery/return copy, and social links. Added `formatMoney` and replaced component-level currency/brand/title literals in the existing shell, cart, editor, product card, and studio context.
