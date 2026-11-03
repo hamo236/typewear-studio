@@ -7,7 +7,7 @@ Newest entry on top. Add each future entry above the previous entry.
 - **Deployment facts verified:** `main` is the deploy branch; GitHub Actions workflow `.github/workflows/deploy-pages.yml` builds `dist/public` and deploys it through GitHub Pages; the live URL is `https://hamo236.github.io/typewear-studio/`.
 - **Changes in this test push:** added `docs/DEPLOY.md`, installed the non-negotiable deployment rule and lightweight deployment gate in `AGENTS.md`, added the T-060 task record, and added this handoff line. No site code was changed.
 - **Expected check:** after the push, confirm the newest `main` workflow run is completed successfully with the command in `docs/DEPLOY.md`. Typical recent delay is 87–90 seconds.
-- **Status:** test push initiated; deployment confirmation is pending. Do not claim this is live until the workflow check succeeds.
+- **Status:** confirmed. Test push commit `d233729` reached workflow run `41720486768`; both the static build and GitHub Pages deploy jobs completed successfully in about 79 seconds. The run emitted only upstream Node.js 20 deprecation and Ubuntu image migration annotations; no deployment failure.
 
 ## 2026-11-03 — T-010 design tokens (in progress)
 
