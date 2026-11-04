@@ -111,7 +111,9 @@ The following values are authoritative for the visual redesign and supersede con
 - **Final T-011 pairing:** Fraunces is the DISPLAY and ACCENT face for expressive Latin headlines and key numbers; Cairo is the Arabic DISPLAY and primary TEXT face; DM Sans is the Latin interface TEXT fallback. All three local variable fonts use `font-display: swap` and are preloaded from `client/index.html`.
 - **Type tokens:** Display 44–120px, H1 36–56px, H2 28–40px, H3 22–28px, Body L 18px, Body M 16px, Body S 14px, Caption 12–13px. Arabic headings use a roomier 1.3 line-height; Latin display uses 1.02 with tight tracking.
 - **Numerals:** Latin digits remain the consistent choice for prices, counts, editor values, and future cart/WhatsApp output.
-- Use motion durations 120/200/320/500ms, soft ease-out entrances, gentle spring sheets/nav, linear shimmer, and reduced-motion fades only. Animate transform and opacity, never layout.
+- **Motion tokens:** `--motion-fast` 120ms, `--motion-standard` 200ms, `--motion-emphasis` 320ms, and `--motion-slow` 500ms. Continuous float, marquee, and spinner loops use named `--motion-float`, `--motion-marquee`, and `--motion-spinner` tokens rather than inline timings.
+- **Easings:** `--ease-out` for entrances and lifts, `--ease-standard` for surface/color changes, `--ease-spring` for sheets and controls, and `--ease-linear` for shimmer/spinner loops. Animate transform and opacity rather than layout.
+- **Reduced motion:** `prefers-reduced-motion: reduce` collapses motion tokens to a 1ms linear fade, disables looping after one iteration, and turns off smooth scrolling.
 - Use mobile-first 2/3/4-column grids at phone/tablet/desktop, generous whitespace, asymmetric hero overlaps, and one primary action per screen.
 
 ### Component and state direction

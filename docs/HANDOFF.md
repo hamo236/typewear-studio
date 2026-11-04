@@ -2,6 +2,12 @@
 
 Newest entry on top. Add each future entry above the previous entry.
 
+## 2026-11-04 — T-012 motion tokens completed
+
+- **Completed:** Added shared motion tokens for 120/200/320/500ms interactions, named loop timings, soft ease-out, standard, spring, and linear easings, and a reduced-motion token override. Existing CSS transitions and animations now consume the motion variables instead of hard-coded timings; the functional behavior is unchanged.
+- **Verification:** 15 motion assertions passed; the CSS audit found no hard-coded timings in transition/animation declarations; `pnpm check`, `pnpm build:static`, and `git diff --check` passed. This task was not visually tested under the lightweight deployment gate.
+- **Next task:** T-013 Base components is now the next open task whose dependencies are complete.
+
 ## 2026-11-04 — T-011 typography completed
 
 - **Completed:** Selected local Fraunces for expressive Latin DISPLAY/ACCENT headlines and key numbers, Cairo for Arabic DISPLAY and primary TEXT, and DM Sans for Latin interface text. Added variable-font loading with `font-display: swap`, preloads in `client/index.html`, fluid type tokens, Arabic heading line-height, and the updated typography specimen copy.
