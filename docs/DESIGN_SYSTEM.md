@@ -83,6 +83,14 @@ Test with landscape, portrait, square, huge, tiny, EXIF-rotated, and transparent
 - Include a hidden `/design-system` page or equivalent showing tokens and every component so the owner can review the style in one place.
 - The result must read as professional human-made branding, with no generic template feeling.
 
+### T-013 base-component state contract
+
+- Buttons expose primary, secondary, ghost, danger, icon, focus, pressed, disabled, and loading states with 44px minimum touch height.
+- Inputs and search controls use the 18px input radius with hover, focus ring, disabled, placeholder, and shimmer loading states.
+- Category/size chips, color dots, badges, and status pills provide default, hover, selected, focus, disabled, and loading states; selected color dots use an ink ring.
+- Tabs use an underline indicator with active, focus, disabled, and reduced-motion behavior. Toasts use the glass-ink treatment and tooltip content uses the same compact dark surface with a solid fallback.
+- Quantity steppers use 40px controls inside a compact shell, with hover, pressed, focus, and disabled states.
+
 ## INSPIRE final visual values
 
 The following values are authoritative for the visual redesign and supersede conflicting starter values above. They are summarized here so CSS tokens and component work have one explicit bridge to INSPIRE.md.

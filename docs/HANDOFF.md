@@ -2,6 +2,12 @@
 
 Newest entry on top. Add each future entry above the previous entry.
 
+## 2026-11-05 — T-013 base components completed
+
+- **Completed:** Expanded the shared CSS component layer with INSPIRE states for buttons, inputs, chips, color dots, badges, underline tabs, glass-ink toasts, tooltips, and quantity steppers. Added focus, selected, pressed, disabled, loading, and reduced-motion behavior while preserving existing markup and product behavior.
+- **Verification:** 13 component-state assertions and 3 token assertions passed; the hard-coded interaction-timing audit passed; `pnpm check`, `pnpm build:static`, and `git diff --check` passed. This task was not visually tested under the lightweight deployment gate.
+- **Next task:** T-014 Surfaces is now the next open task whose dependencies are complete.
+
 ## 2026-11-04 — T-012 motion tokens completed
 
 - **Completed:** Added shared motion tokens for 120/200/320/500ms interactions, named loop timings, soft ease-out, standard, spring, and linear easings, and a reduced-motion token override. Existing CSS transitions and animations now consume the motion variables instead of hard-coded timings; the functional behavior is unchanged.
