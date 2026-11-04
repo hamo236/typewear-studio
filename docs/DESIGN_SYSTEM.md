@@ -137,3 +137,8 @@ The following values are authoritative for the visual redesign and supersede con
 - `glass-panel`/`surface-panel` are for raised panels; `glass-light`/`surface-sheet`/`surface-drawer`/`surface-modal` use the light glass recipe; `glass-ink`/`surface-chip` use the dark floating recipe; `glass-dark` is reserved for dark-theme panels.
 - Every recipe has a solid `surface-raised` or charcoal fallback before the `backdrop-filter` enhancement. Overlays use a quiet scrim, surfaces never stack more than two glass layers, and close controls keep 44px targets with visible focus rings.
 - Sheets and drawers use 28px top corners, modals use 28px all around, drag handles are tokenized pills, and open/close movement uses the motion tokens with reduced-motion overrides.
+
+### T-015 app-shell contract
+
+- Desktop uses a centered floating glass pill header with raised active navigation, theme and locale controls, cart count, and visible keyboard focus. Mobile keeps the compact header but moves primary navigation into a fixed dark-glass pill with four 44px-friendly targets and a lime active circle.
+- Mobile shell content reserves safe-area space above the bottom navigation. Footer links remain available below the content, and the theme provider honors a saved choice first, then `prefers-color-scheme`, then the configured light fallback.

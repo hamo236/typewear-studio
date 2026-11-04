@@ -1,6 +1,6 @@
 import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
-import { SiteFooter, SiteHeader } from "./components/SiteShell";
+import { MobileNav, SiteFooter, SiteHeader } from "./components/SiteShell";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { StudioProvider, useStudio } from "./lib/StudioContext";
 import About from "./pages/About";
@@ -32,6 +32,7 @@ function SiteRoutes() {
       </Switch>
     </main>
     <SiteFooter />
+    <MobileNav />
   </div>;
 }
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, Moon, ShoppingBag, Sun, X } from "lucide-react";
+import { Heart, Home as HomeIcon, Menu, Moon, ShoppingBag, Store, Sun, X } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useStudio } from "@/lib/StudioContext";
 import { siteConfig } from "@/lib/site-config";
@@ -60,8 +60,28 @@ export function SiteFooter() {
       <div className="page-container footer-inner">
         <div className="footer-brand"><span className="brand-mark" aria-hidden="true">T<span>W</span></span><span>{siteConfig.brandName} / {locale === "ar" ? "استوديو تصميم تجريبي" : "A clothing design concept"}</span></div>
         <p className="footer-demo"><span className="status-dot" />{locale === "ar" ? "نموذج واجهة فقط · لا توجد طلبات حقيقية" : "Frontend concept only · no real orders"}</p>
+        <nav className="footer-links" aria-label={locale === "ar" ? "روابط الموقع" : "Site links"}>
+          <Link href="/">{t("home")}</Link><Link href="/products">{t("shop")}</Link><Link href="/about">{t("about")}</Link>
+        </nav>
         <span className="footer-year">© 2026 {siteConfig.brandName.toUpperCase()}</span>
       </div>
     </footer>
   );
+}
+
+export function MobileNav() {
+  const { locale, t, cartCount } = useStudio();
+  const [location] = useLocation();
+  const favoritesHref = "/products?view=favorites";
+  const items = [
+    { href: "/", label: locale === "ar" ? "الرئيسية" : "Home", icon: HomeIcon, active: location === "/" },
+    { href: "/products", label: t("shop"), icon: Store, active: location.startsWith("/products") && !location.includes("view=favorites") },
+    { href: favoritesHref, label: locale === "ar" ? "المفضلة" : "Favorites", icon: Heart, active: location.includes("view=favorites") },
+    { href: "/cart", label: t("bag"), icon: ShoppingBag, active: location.startsWith("/cart"), count: cartCount },
+  ];
+  return <nav className="mobile-nav glass-ink" aria-label={locale === "ar" ? "التنقل السفلي" : "Bottom navigation"}>
+    {items.map(({ href, label, icon: Icon, active, count }) => <Link href={href} key={href} className={`mobile-nav-item ${active ? "is-active" : ""}`} aria-current={active ? "page" : undefined}>
+      <span className="mobile-nav-icon"><Icon size={18} strokeWidth={active ? 2.4 : 2} aria-hidden="true" />{count !== undefined && count > 0 ? <span className="mobile-nav-count" aria-live="polite">{count}</span> : null}</span><span>{label}</span>
+    </Link>)}
+  </nav>;
 }

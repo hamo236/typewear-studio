@@ -21,7 +21,8 @@ export function ThemeProvider({ children, defaultTheme = "light", switchable = f
     if (!switchable) return defaultTheme;
     try {
       const stored = localStorage.getItem("theme");
-      return stored === "dark" || stored === "light" ? stored : defaultTheme;
+      if (stored === "dark" || stored === "light") return stored;
+      return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : defaultTheme;
     } catch {
       return defaultTheme;
     }

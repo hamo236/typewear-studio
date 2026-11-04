@@ -2,6 +2,12 @@
 
 Newest entry on top. Add each future entry above the previous entry.
 
+## 2026-11-05 — T-015 app shell completed
+
+- **Completed:** Restyled the desktop header as a centered floating glass pill, added the responsive mobile dark-glass bottom navigation with Home/Shop/Favorites/Cart targets, added footer links and safe-area spacing, and made theme initialization honor `localStorage`, then OS preference, then the configured fallback.
+- **Verification:** 6 shell CSS assertions plus route/theme checks passed; `pnpm check`, `pnpm build:static`, and `git diff --check` passed. This task was not visually tested under the lightweight deployment gate.
+- **Next task:** T-016 Design-system review page is now the next open task whose dependencies are complete.
+
 ## 2026-11-05 — T-014 surfaces completed
 
 - **Completed:** Added reusable glass panel, glass-light, glass-ink, glass-dark, sheet/drawer, modal, overlay, and drag-handle recipes. Radix sheet/dialog surfaces now receive solid fallbacks, restrained blur enhancement, tokenized motion, 44px close targets, and visible focus rings without changing their behavior.
