@@ -131,3 +131,9 @@ The following values are authoritative for the visual redesign and supersede con
 - Shop/product: search/filter controls, category circles, tinted 4:5 product stages, glass favorite and state chips, display-numeral prices, detail thumbnail rail, tabs, chips, dots, stepper, and sticky mobile actions.
 - Cart/toasts: glass-light sheet with drag handle and large total, one lime WhatsApp action, glass-ink toast above navigation, and designed empty states.
 - Image slots: intentional tinted public empty state, admin `أضف صورة` chip, shimmer loading, fade-in filled state, friendly retry error, and no dashed missing-image boxes.
+
+### T-014 surface contract
+
+- `glass-panel`/`surface-panel` are for raised panels; `glass-light`/`surface-sheet`/`surface-drawer`/`surface-modal` use the light glass recipe; `glass-ink`/`surface-chip` use the dark floating recipe; `glass-dark` is reserved for dark-theme panels.
+- Every recipe has a solid `surface-raised` or charcoal fallback before the `backdrop-filter` enhancement. Overlays use a quiet scrim, surfaces never stack more than two glass layers, and close controls keep 44px targets with visible focus rings.
+- Sheets and drawers use 28px top corners, modals use 28px all around, drag handles are tokenized pills, and open/close movement uses the motion tokens with reduced-motion overrides.

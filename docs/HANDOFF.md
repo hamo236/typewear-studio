@@ -2,6 +2,12 @@
 
 Newest entry on top. Add each future entry above the previous entry.
 
+## 2026-11-05 — T-014 surfaces completed
+
+- **Completed:** Added reusable glass panel, glass-light, glass-ink, glass-dark, sheet/drawer, modal, overlay, and drag-handle recipes. Radix sheet/dialog surfaces now receive solid fallbacks, restrained blur enhancement, tokenized motion, 44px close targets, and visible focus rings without changing their behavior.
+- **Verification:** 14 surface assertions and the fallback/token audit passed; `pnpm check`, `pnpm build:static`, and `git diff --check` passed. This task was not visually tested under the lightweight deployment gate.
+- **Next task:** T-015 App shell is now the next open task whose dependencies are complete.
+
 ## 2026-11-05 — T-013 base components completed
 
 - **Completed:** Expanded the shared CSS component layer with INSPIRE states for buttons, inputs, chips, color dots, badges, underline tabs, glass-ink toasts, tooltips, and quantity steppers. Added focus, selected, pressed, disabled, loading, and reduced-motion behavior while preserving existing markup and product behavior.
