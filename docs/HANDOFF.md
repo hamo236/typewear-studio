@@ -2,6 +2,12 @@
 
 Newest entry on top. Add each future entry above the previous entry.
 
+## 2026-11-04 — T-011 typography completed
+
+- **Completed:** Selected local Fraunces for expressive Latin DISPLAY/ACCENT headlines and key numbers, Cairo for Arabic DISPLAY and primary TEXT, and DM Sans for Latin interface text. Added variable-font loading with `font-display: swap`, preloads in `client/index.html`, fluid type tokens, Arabic heading line-height, and the updated typography specimen copy.
+- **Verification:** Typography assertions passed; all three local font assets are present and non-empty; `pnpm check`, `pnpm build:static`, and `git diff --check` passed. This task was not visually tested under the lightweight deployment gate.
+- **Next task:** T-012 Motion tokens is now the next open task whose dependencies are complete.
+
 ## 2026-11-03 — INSPIRE added
 
 - **Files created/changed:** added `docs/INSPIRE.md`; updated `AGENTS.md`, `docs/PROJECT_BRIEF.md`, `docs/DESIGN_SYSTEM.md`, `docs/QUALITY_CHECKLIST.md`, `docs/TASKS.md`, and this handoff log. No site code, styles, or assets were changed.

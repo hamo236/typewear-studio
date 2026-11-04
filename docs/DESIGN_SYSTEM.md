@@ -108,8 +108,9 @@ The following values are authoritative for the visual redesign and supersede con
 
 ### Typography, motion, and composition
 
-- Use three roles: DISPLAY, ACCENT, and TEXT, each with a deliberate Arabic and Latin solution. The final pairing, font loading, and numeral choice are recorded in INSPIRE.md §5 and must be tested with real Arabic product names and prices before freezing.
-- Fluid scale: Display 44–120px, H1 36–56px, H2 28–40px, H3 22–28px, Body L 18px, Body M 16px, Body S 14px, Caption 12–13px. Arabic line heights are roomier than Latin.
+- **Final T-011 pairing:** Fraunces is the DISPLAY and ACCENT face for expressive Latin headlines and key numbers; Cairo is the Arabic DISPLAY and primary TEXT face; DM Sans is the Latin interface TEXT fallback. All three local variable fonts use `font-display: swap` and are preloaded from `client/index.html`.
+- **Type tokens:** Display 44–120px, H1 36–56px, H2 28–40px, H3 22–28px, Body L 18px, Body M 16px, Body S 14px, Caption 12–13px. Arabic headings use a roomier 1.3 line-height; Latin display uses 1.02 with tight tracking.
+- **Numerals:** Latin digits remain the consistent choice for prices, counts, editor values, and future cart/WhatsApp output.
 - Use motion durations 120/200/320/500ms, soft ease-out entrances, gentle spring sheets/nav, linear shimmer, and reduced-motion fades only. Animate transform and opacity, never layout.
 - Use mobile-first 2/3/4-column grids at phone/tablet/desktop, generous whitespace, asymmetric hero overlaps, and one primary action per screen.
 
